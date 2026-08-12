@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ticket Detail — Support CRM</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body class="bg-gray-50 min-h-screen">
+
+  <nav class="bg-white border-b border-gray-200 px-6 py-4 flex justify-between items-center">
+    <a href="/static/index.html" class="text-xl font-semibold text-gray-800">Support CRM</a>
+    <a href="/static/index.html" class="text-gray-500 hover:text-gray-800 transition">← Back to tickets</a>
+  </nav>
+
+  <main class="max-w-3xl mx-auto px-6 py-10">
+
+    <div id="loading" class="text-center text-gray-400 py-12">Loading ticket...</div>
+    <div id="not-found" class="hidden text-center text-red-500 py-12">Ticket not found.</div>
+
+    <div id="ticket-content" class="hidden space-y-6">
+
+      <!-- Header -->
+      <div class="flex justify-between items-start">
+        <div>
+          <h2 id="ticket-id" class="text-2xl font-semibold text-gray-800"></h2>
+          <p id="ticket-subject" class="text-gray-500 mt-1"></p>
+        </div>
+        <div class="flex gap-2">
+          <span id="priority-badge" class="text-xs px-3 py-1 rounded-full font-medium"></span>
+          <span id="status-badge" class="text-xs px-3 py-1 rounded-full font-medium"></span>
+        </div>
+      </div>
+
+      <!-- Customer info -->
+      <div class="bg-white rounded-lg shadow p-5 grid grid-cols-2 gap-4 text-sm">
+        <div>
+          <div class="text-gray-400">Customer</div>
+          <div id="customer-name" class="font-medium text-gray-800"></div>
+        </div>
+        <div>
+          <div class="text-gray-400">Email</div>
+          <div id="customer-email" class="font-medium text-gray-800"></div>
+        </div>
+        <div>
+          <div class="text-gray-400">Created</div>
+          <div id="created-at" class="font-medium text-gray-800"></div>
+        </div>
+        <div>
+          <div class="text-gray-400">Last Updated</div>
+          <div id="updated-at" class="font-medium text-gray-800"></div>
+        </div>
+      </div>
+
+      <!-- Description -->
+      <div class="bg-white rounded-lg shadow p-5">
+        <div class="text-gray-400 text-sm mb-2">Description</div>
+        <p id="ticket-description" class="text-gray-700"></p>
+      </div>
+
+      <!-- Update controls -->
+      <div class="bg-white rounded-lg shadow p-5 space-y-4">
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Status</label>
+            <select id="update-status" class="w-full border border-gray-300 rounded-lg px-3 py-2">
+              <option value="Open">Open</option>
+              <option value="In Progress">In Progress</option>
+              <option value="Closed">Closed</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Priority</label>
+            <select id="update-priority" class="w-full border border-gray-300 rounded-lg px-3 py-2">
+              <option value="Low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+              <option value="Urgent">Urgent</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Add a Note</label>
+          <textarea id="new-note" rows="3" placeholder="Add an internal note or comment..."
+            class="w-full border border-gray-300 rounded-lg px-3 py-2"></textarea>
+        </div>
+
+        <div id="update-error" class="hidden text-red-600 text-sm"></div>
+        <div id="update-success" class="hidden text-green-600 text-sm"></div>
+
+        <button id="update-btn"
+          class="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition font-medium">
+          Save Changes
+        </button>
+      </div>
+
+      <!-- Notes history -->
+      <div class="bg-white rounded-lg shadow p-5">
+        <div class="text-gray-400 text-sm mb-3">Notes History</div>
+        <div id="notes-list" class="space-y-3"></div>
+        <div id="no-notes" class="text-gray-400 text-sm hidden">No notes yet.</div>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/ticket.js"></script>
+</body>
+</html>
