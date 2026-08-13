@@ -7,3 +7,11 @@
 - Built all 4 required API endpoints (create, list w/ search+filter, get, update)
 - Tested every endpoint in Postman — all working
 - Pushed initial backend to GitHub
+
+## Day 2 — Frontend
+- Built home page: ticket table, status dashboard, search bar, status filter
+- Built create ticket form with validation
+- Built ticket detail page: view info, update status/priority, add notes
+- Wired all pages to the tested API
+- Full browser test: create → search → filter → update → notes — all working
+- Pushed frontend to GitHub
