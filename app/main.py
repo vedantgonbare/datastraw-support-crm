@@ -26,11 +26,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.mount("/", StaticFiles(directory="static", html=True), name="static")
-
 app.include_router(tickets.router)
 
 
 @app.get("/api/health")
 def health_check():
     return {"status": "ok"}
+
+app.mount("/", StaticFiles(directory="static", html=True), name="static")
