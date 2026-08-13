@@ -24,14 +24,14 @@
     </div>
 
     <!-- Search + Filter bar -->
-    <div class="flex gap-4 mb-6">
+     <div class="flex flex-col sm:flex-row gap-4 mb-6">
       <input
         id="search-input"
         type="text"
         placeholder="Search by name, email, ID, or description..."
         class="flex-1 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
-      <select id="status-filter" class="border border-gray-300 rounded-lg px-4 py-2">
+      <select id="status-filter" class="w-full sm:w-auto border border-gray-300 rounded-lg px-4 py-2">
         <option value="">All Statuses</option>
         <option value="Open">Open</option>
         <option value="In Progress">In Progress</option>
@@ -40,8 +40,8 @@
     </div>
 
     <!-- Ticket table -->
-    <div class="bg-white rounded-lg shadow overflow-hidden">
-      <table class="w-full text-left">
+    <div class="bg-white rounded-lg shadow overflow-x-auto">
+      <table class="w-full text-left min-w-[640px]">
         <thead class="bg-gray-100 text-gray-600 text-sm">
           <tr>
             <th class="px-4 py-3">Ticket ID</th>
