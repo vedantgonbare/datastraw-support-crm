@@ -19,7 +19,7 @@ form.addEventListener("submit", async (e) => {
 
   try {
     const result = await apiCreateTicket(data);
-    window.location.href = `/static/ticket.html?id=${result.ticket_id}`;
+    window.location.href = `/ticket.html?id=${result.ticket_id}`;
   } catch (err) {
     errorDiv.textContent = err.message;
     errorDiv.classList.remove("hidden");

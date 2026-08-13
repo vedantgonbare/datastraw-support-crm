@@ -30,7 +30,7 @@ function renderTickets(tickets) {
   tickets.forEach((t) => {
     const row = document.createElement("tr");
     row.className = "border-t border-gray-100 hover:bg-gray-50 cursor-pointer";
-    row.onclick = () => (window.location.href = `/static/ticket.html?id=${t.ticket_id}`);
+    row.onclick = () => (window.location.href = `/ticket.html?id=${t.ticket_id}`);
 
     row.innerHTML = `
       <td class="px-4 py-3 font-medium text-blue-600">${t.ticket_id}</td>
