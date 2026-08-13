@@ -4,6 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.database import Base, engine
 from app.routers import tickets
 from fastapi.staticfiles import StaticFiles
+
 # Creates tables on startup if they don't already exist.
 # Safe to call every time — it won't touch existing tables/data.
 Base.metadata.create_all(bind=engine)
@@ -25,9 +26,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.mount("/static", StaticFiles(directory="static"), name="static")
+app.mount("/", StaticFiles(directory="static", html=True), name="static")
 
 app.include_router(tickets.router)
+
 
 @app.get("/api/health")
 def health_check():
