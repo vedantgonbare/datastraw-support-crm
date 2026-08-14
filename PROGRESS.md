@@ -15,3 +15,9 @@
 - Wired all pages to the tested API
 - Full browser test: create → search → filter → update → notes — all working
 - Pushed frontend to GitHub
+
+## Day 3 — Deployment & Submission (planned)
+- Deploy to Railway.app
+- Write README.md
+- Record demo video
+- Send submission email
